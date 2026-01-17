@@ -271,6 +271,7 @@ section {
 }
 
 .scroll-indicator {
+    margin-top: 80px;
     position: absolute;
     bottom: 2rem;
     left: 50%;
@@ -285,6 +286,7 @@ section {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     animation: fadeInUp 1s ease-out 1s both;
+    display: none;
 }
 
 .scroll-indicator svg {
