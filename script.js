@@ -183,16 +183,16 @@ document.addEventListener('keydown', (e) => {
 });
 
 // Sample form submission
-sampleForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// sampleForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
     
-    // Simulate form submission
-    sampleForm.style.display = 'none';
-    sampleSuccess.classList.add('show');
+//     // Simulate form submission
+//     sampleForm.style.display = 'none';
+//     sampleSuccess.classList.add('show');
     
-    // Auto close after 3 seconds
-    setTimeout(closeModal, 3000);
-});
+//     // Auto close after 3 seconds
+//     setTimeout(closeModal, 3000);
+// });
 
 // ============================================
 // Newsletter Form
