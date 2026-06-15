@@ -185,23 +185,17 @@ document.addEventListener('keydown', (e) => {
 
 const smBtn= document.getElementById('btnsub');
 
-sampleForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    smBtn.addEventListener("click", () => {
+    document.getElementById("btnSub").addEventListener("click", () => {
     window.open(
         "https://drive.google.com/uc?export=download&id=16Ozxmz5ppBd21_LJ0V1kIgQ3s9kihbeN",
         "_blank"
     );
-});
-    
-    // Simulate form submission
     sampleForm.style.display = 'none';
     sampleSuccess.classList.add('show');
-    
-    // Auto close after 3 seconds
-    setTimeout(closeModal, 3000);
+    setTimeout(closeModal, 5000);
 });
-
+    
+  
 // ============================================
 // Newsletter Form
 // ============================================
