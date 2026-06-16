@@ -190,70 +190,98 @@ const smBtn= document.getElementById('btnsub');
         "https://drive.google.com/uc?export=download&id=16Ozxmz5ppBd21_LJ0V1kIgQ3s9kihbeN",
         "_blank"
     );
-    sampleForm.style.display = 'none';
-    sampleSuccess.classList.add('show');
+
     setTimeout(closeModal, 5000);
 });
     
-  
 // ============================================
 // Newsletter Form
 // ============================================
 const newsletterForm = document.getElementById('newsletterForm');
 const newsletterSuccess = document.getElementById('newsletterSuccess');
 
-newsletterForm.addEventListener('submit', (e) => {
+newsletterForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Get form values
-    const email = document.getElementById('email').value;
-    const name = document.getElementById('name').value;
-    
-    // Simulate form submission
-    newsletterForm.style.display = 'none';
-    newsletterSuccess.classList.add('show');
-    
-    // Reset after 5 seconds
-    setTimeout(() => {
-        newsletterForm.style.display = 'block';
-        newsletterSuccess.classList.remove('show');
-        newsletterForm.reset();
-    }, 5000);
-    
-    // Here you would typically send data to your email service
-    console.log('Newsletter subscription:', { email, name });
-});
 
+    const data = {
+        access_key: "97019763-ff5a-4b7e-997d-4bbdef21b5bc",
+        subject: "New Newsletter Subscriber",
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: "User subscribed to the newsletter."
+    };
+
+    try {
+        const response = await fetch(
+            "https://api.web3forms.com/submit",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+        );
+
+        const result = await response.json();
+
+        if (result.success) {
+            newsletterForm.style.display = 'none';
+            newsletterSuccess.classList.add('show');
+
+            setTimeout(() => {
+                newsletterForm.style.display = 'block';
+                newsletterSuccess.classList.remove('show');
+                newsletterForm.reset();
+            }, 5000);
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Subscription failed. Please try again.");
+    }
+});
 // ============================================
 // Contact Form
 // ============================================
 const contactForm = document.getElementById('contactForm');
 const contactSuccess = document.getElementById('contactSuccess');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Get form values
+
     const formData = {
+        access_key: "97019763-ff5a-4b7e-997d-4bbdef21b5bc",
         name: document.getElementById('contactName').value,
         email: document.getElementById('contactEmail').value,
         subject: document.getElementById('subject').value,
         message: document.getElementById('message').value
     };
-    
-    // Simulate form submission
-    contactForm.style.display = 'none';
-    contactSuccess.classList.add('show');
-    
-    // Reset after 5 seconds
-    setTimeout(() => {
-        contactForm.style.display = 'block';
-        contactSuccess.classList.remove('show');
-        contactForm.reset();
-    }, 5000);
-    
-    // Here you would typically send data to your email service
-    console.log('Contact form submission:', formData);
+
+    const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+    );
+
+    const result = await response.json();
+
+    if (result.success) {
+        contactForm.style.display = 'none';
+        contactSuccess.classList.add('show');
+
+        setTimeout(() => {
+            contactForm.style.display = 'block';
+            contactSuccess.classList.remove('show');
+            contactForm.reset();
+        }, 5000);
+    }
 });
 
 // ============================================
