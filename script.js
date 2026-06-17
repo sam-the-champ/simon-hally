@@ -204,7 +204,7 @@ newsletterForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const data = {
-        access_key: "97019763-ff5a-4b7e-997d-4bbdef21b5bc",
+        access_key: "2e50cb0b-4eed-4e5c-a0d3-82bc545911ac",
         subject: "New Newsletter Subscriber",
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
@@ -251,7 +251,7 @@ contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = {
-        access_key: "97019763-ff5a-4b7e-997d-4bbdef21b5bc",
+        access_key: "2e50cb0b-4eed-4e5c-a0d3-82bc545911ac",
         name: document.getElementById('contactName').value,
         email: document.getElementById('contactEmail').value,
         subject: document.getElementById('subject').value,
